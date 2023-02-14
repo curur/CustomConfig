@@ -20,13 +20,15 @@ dependencies {
 
 tasks {
     jar {
-
-        from(sourceSets["main"].allSource.filter {it.name != "Main.kt"} )
+        archiveClassifier.set("source")
+        from(sourceSets["main"].allSource.filter { it.name != "Main.kt" } )
+        exclude("plugin.yml")
+        exclude("Main.kt")
 
     }
 
     create<Jar>("plugin") {
-
+        archiveClassifier.set("plugin")
         from(sourceSets["main"].output)
 
     }
