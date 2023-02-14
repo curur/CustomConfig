@@ -24,6 +24,10 @@ tasks {
         dependsOn(named("source"))
     }
 
+    jar {
+        exclude("plugin.yml")
+    }
+
     create<Jar>("plugin") {
         archiveClassifier.set("plugin")
         from(sourceSets["main"].output)
