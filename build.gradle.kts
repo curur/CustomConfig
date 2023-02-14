@@ -20,17 +20,13 @@ dependencies {
 
 tasks {
 
-    publishToMavenLocal {
-        dependsOn(task("source"))
+    build {
+        dependsOn(named("source"))
     }
-    jar {
+
+    create<Jar>("plugin") {
         archiveClassifier.set("plugin")
         from(sourceSets["main"].output)
-        archiveClassifier.set("source")
-        from(sourceSets["main"].allSource.filter { it.name != "Main.kt" } )
-        exclude("plugin.yml")
-        exclude("Main.kt")
-
     }
 
     create<Jar>("source") {
