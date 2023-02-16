@@ -24,10 +24,6 @@ tasks {
         dependsOn(named("source"))
     }
 
-    jar {
-        exclude("plugin.yml")
-    }
-
     create<Jar>("plugin") {
         archiveClassifier.set("plugin")
         from(sourceSets["main"].output)
@@ -40,4 +36,16 @@ tasks {
         exclude("Main.kt")
     }
 
+}
+
+publishing {
+    publications {
+        create<MavenPublication>("jitpack") {
+
+            groupId = "com.github.curur.customconfig"
+            artifactId = "customconfig"
+            version = "0.0.1"
+
+        }
+    }
 }

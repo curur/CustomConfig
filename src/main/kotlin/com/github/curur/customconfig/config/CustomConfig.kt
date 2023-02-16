@@ -14,14 +14,14 @@ class CustomConfig(val plugin: JavaPlugin, val configName: String, val configPat
         saveDefaultConfig()
     }
 
-    private val configFile: File = File(configPath, configName)
-    var config: FileConfiguration = YamlConfiguration.loadConfiguration(configFile)
+    private var configFile: File? = File(configPath, configName)
+    var config: FileConfiguration = YamlConfiguration.loadConfiguration(configFile!!)
         private set
 
 
     fun reloadConfig() {
 
-        this.config = YamlConfiguration.loadConfiguration(configFile)
+        this.config = YamlConfiguration.loadConfiguration(configFile!!)
 
         plugin.getResource(configName)?.let {
 
@@ -33,16 +33,23 @@ class CustomConfig(val plugin: JavaPlugin, val configName: String, val configPat
 
     fun saveConfig() {
         try {
-            config.save(this.configFile)
+            config.save(this.configFile!!)
         } catch (e: IOException) {
             plugin.logger.log(Level.SEVERE, "Could not save config to ${this.configFile}", e)
         }
     }
 
     fun saveDefaultConfig() {
+        if(this.configFile == null) this.configFile = File(configPath, configName)
 
-        if(!this.configFile.exists()) {
-            this.plugin.saveResource(configName, false)
+        println(configFile!!.path)
+
+        if(!this.configFile!!.exists()) {
+            try {
+                configFile!!.createNewFile()
+            } catch (e: IOException) {
+                this.plugin.logger.log(Level.SEVERE, "can't create new config file(error)")
+            }
         }
 
     }
