@@ -20,16 +20,7 @@ dependencies {
 
 tasks {
 
-    build {
-        dependsOn(named("source"))
-    }
-
-    create<Jar>("plugin") {
-        archiveClassifier.set("plugin")
-        from(sourceSets["main"].output)
-    }
-
-    create<Jar>("source") {
+    create<Jar>("sources") {
         archiveClassifier.set("source")
         from(sourceSets["main"].allSource.filter { it.name != "Main.kt" } )
         exclude("plugin.yml")
@@ -44,7 +35,7 @@ publishing {
             groupId = "com.github.curur.customconfig"
             artifactId = "customconfig"
             version = "0.0.1"
-            artifact(tasks["source"])
+            artifact(tasks["sources"])
 
         }
     }
