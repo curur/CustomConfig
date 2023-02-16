@@ -39,7 +39,7 @@ tasks {
 
 publishing {
     publications {
-        create<MavenPublication>("jitpack") {
+        create<MavenPublication>("customConfig") {
 
             groupId = "com.github.curur.customconfig"
             artifactId = "customconfig"
