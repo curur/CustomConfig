@@ -21,7 +21,7 @@ dependencies {
 tasks {
 
     create<Jar>("sources") {
-        archiveClassifier.set("source")
+        archiveClassifier.set("sources")
         from(sourceSets["main"].allSource.filter { it.name != "Main.kt" } )
         exclude("plugin.yml")
     }
@@ -30,7 +30,7 @@ tasks {
 
 publishing {
     publications {
-        create<MavenPublication>("customConfig") {
+        create<MavenPublication>("customconfig") {
 
             groupId = "com.github.curur.customconfig"
             artifactId = "customconfig"
