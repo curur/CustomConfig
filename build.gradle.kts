@@ -33,7 +33,6 @@ tasks {
         archiveClassifier.set("source")
         from(sourceSets["main"].allSource.filter { it.name != "Main.kt" } )
         exclude("plugin.yml")
-        exclude("Main.kt")
     }
 
 }
@@ -45,6 +44,7 @@ publishing {
             groupId = "com.github.curur.customconfig"
             artifactId = "customconfig"
             version = "0.0.1"
+            artifact(tasks["source"])
 
         }
     }
