@@ -22,7 +22,7 @@ tasks {
 
     create<Jar>("sources") {
         archiveClassifier.set("sources")
-        from(sourceSets["main"].allSource.filter { it.name != "Main.kt" } )
+        from(sourceSets["main"].allSource.filter { println(it.name);it.name != "Main.kt" } )
         exclude("plugin.yml")
     }
 
