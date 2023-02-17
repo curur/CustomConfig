@@ -20,12 +20,12 @@ dependencies {
 
 tasks {
 
-//    create<Jar>("sources") {
-//        archiveClassifier.set("sources")
-//        from(sourceSets["main"].allSource)
-//        exclude("Main.kt")
-//        exclude("plugin.yml")
-//    }
+    create<Jar>("sources") {
+        archiveClassifier.set("sources")
+        from(sourceSets["main"].allSource)
+        exclude("Main.kt")
+        exclude("plugin.yml")
+    }
 
 }
 
@@ -37,6 +37,8 @@ publishing {
             artifactId = "customconfig"
             version = "0.0.1"
             from(components["java"])
+            artifact(tasks["sources"])
+            println(components["java"])
 
         }
     }
