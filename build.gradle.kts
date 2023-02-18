@@ -6,6 +6,8 @@ plugins {
 group = "com.github.curur.customconfig"
 version = "0.0.1"
 
+var something: Any? = null
+
 java {
     toolchain.languageVersion.set(JavaLanguageVersion.of(17))
 }
@@ -19,6 +21,11 @@ dependencies {
 }
 
 tasks {
+    jar {
+
+        from(sourceSets["main"].output.filter { !listOf("Main.kt", "plugin.yml").contains(it.name) })
+
+    }
 
     create<Jar>("sources") {
         archiveClassifier.set("sources")
@@ -36,9 +43,7 @@ publishing {
             groupId = "com.github.curur.customconfig"
             artifactId = "customconfig"
             version = "0.0.1"
-            from(components["java"])
             artifact(tasks["sources"])
-            println(components["java"])
 
         }
     }
