@@ -12,12 +12,16 @@ java {
     toolchain.languageVersion.set(JavaLanguageVersion.of(17))
 }
 
-repositories {
-    maven("https://repo.papermc.io/repository/maven-public/")
-}
+allprojects {
+    apply(plugin = "org.jetbrains.kotlin.jvm")
 
-dependencies {
-    compileOnly("io.papermc.paper:paper-api:1.19.3-R0.1-SNAPSHOT")
+    repositories {
+        maven("https://repo.papermc.io/repository/maven-public/")
+    }
+
+    dependencies {
+        compileOnly("io.papermc.paper:paper-api:1.19.3-R0.1-SNAPSHOT")
+    }
 }
 
 tasks {
@@ -28,7 +32,7 @@ tasks {
     }
 
     create<Jar>("sources") {
-        from(sourceSets["main"].allSource.filter { !(listOf("Main.kt", "plugin.yml").contains(it.name)) })
+        from(project(":customConfig-api").sourceSets["main"].output)
         destinationDirectory.set(file(".jitpack"))
         archiveBaseName.set("jitpack")
         archiveVersion.set("")

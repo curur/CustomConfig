@@ -9,6 +9,8 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/customConfig-api" />
+            <option value="$PROJECT_DIR$/customConfig-plugin" />
           </set>
         </option>
       </GradleProjectSettings>
