@@ -23,15 +23,15 @@ dependencies {
 tasks {
     jar {
 
-        from(sourceSets["main"].output.filter { !listOf("Main.kt", "plugin.yml").contains(it.name) })
+//        from(sourceSets["main"].output.filter { !(listOf("Main.kt", "plugin.yml").contains(it.name)) })
 
     }
 
     create<Jar>("sources") {
-        archiveClassifier.set("sources")
-        from(sourceSets["main"].allSource)
-        exclude("Main.kt")
-        exclude("plugin.yml")
+        from(sourceSets["main"].allSource.filter { !(listOf("Main.kt", "plugin.yml").contains(it.name)) })
+        destinationDirectory.set(file(".jitpack"))
+        archiveBaseName.set("jitpack")
+        archiveVersion.set("")
     }
 
 }
@@ -43,7 +43,7 @@ publishing {
             groupId = "com.github.curur.customconfig"
             artifactId = "customconfig"
             version = "0.0.1"
-            artifact(tasks["sources"])
+            artifact(".jitpack\\jitpack.jar")
 
         }
     }
