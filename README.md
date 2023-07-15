@@ -10,6 +10,6 @@ allprojects {
 
 ```gradle
 dependencies {
-        implementation 'com.github.curur:CustomConfig:0.0.3'
+	implementation 'com.github.curur:CustomConfig:0.0.3'
 }
 ```
