@@ -4,7 +4,7 @@ plugins {
 }
 
 group = "com.github.curur.customconfig"
-version = "0.0.1"
+version = "0.0.3"
 
 var something: Any? = null
 
@@ -26,6 +26,9 @@ allprojects {
 
 tasks {
     jar {
+        from(project(":customConfig-api").sourceSets["main"].output)
+        from(project(":customConfig-plugin").sourceSets["main"].output)
+        include("plugin.yml")
 
 //        from(sourceSets["main"].output.filter { !(listOf("Main.kt", "plugin.yml").contains(it.name)) })
 

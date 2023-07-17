@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/customConfig-api/customConfig.customConfig-api.main.iml" filepath="$PROJECT_DIR$/.idea/modules/customConfig-api/customConfig.customConfig-api.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/customConfig-plugin/customConfig.customConfig-plugin.main.iml" filepath="$PROJECT_DIR$/.idea/modules/customConfig-plugin/customConfig.customConfig-plugin.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/customConfig.main.iml" filepath="$PROJECT_DIR$/.idea/modules/customConfig.main.iml" />
+    </modules>
+  </component>
+</project>
