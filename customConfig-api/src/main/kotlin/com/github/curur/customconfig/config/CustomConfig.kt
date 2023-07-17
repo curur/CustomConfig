@@ -1,5 +1,6 @@
 package com.github.curur.customconfig.config
 
+import org.bukkit.Bukkit
 import org.bukkit.configuration.file.FileConfiguration
 import org.bukkit.configuration.file.YamlConfiguration
 import org.bukkit.plugin.java.JavaPlugin
@@ -48,7 +49,7 @@ class CustomConfig(val plugin: JavaPlugin, val configName: String, val configPat
             try {
                 configFile!!.createNewFile()
             } catch (e: IOException) {
-                this.plugin.logger.log(Level.SEVERE, "can't create new config file(error)")
+                Bukkit.getLogger().log(Level.SEVERE, "can't create new config file(error)")
             }
         }
 
