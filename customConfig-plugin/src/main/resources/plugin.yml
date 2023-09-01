@@ -1,5 +1,5 @@
 name: CustomConfig
 main: com.github.curur.customconfig.plugin.Main
-version: 0.0.4
+version: 0.0.6
 libraries:
   - org.jetbrains.kotlin:kotlin-stdlib:1.8.0

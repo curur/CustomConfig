@@ -36,14 +36,12 @@ class CustomConfig(val plugin: JavaPlugin, val configName: String, val configPat
         try {
             config.save(this.configFile!!)
         } catch (e: IOException) {
-            plugin.logger.log(Level.SEVERE, "Could not save config to ${this.configFile}", e)
+            Bukkit.getLogger().log(Level.SEVERE, "Could not save config to ${this.configFile}", e)
         }
     }
 
     fun saveDefaultConfig() {
         if(this.configFile == null) this.configFile = File(configPath, configName)
-
-        println(configFile!!.path)
 
         if(!this.configFile!!.exists()) {
             try {

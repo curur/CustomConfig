@@ -4,7 +4,7 @@ plugins {
 }
 
 group = "com.github.curur.customconfig"
-version = "0.0.4"
+version = "0.0.6"
 
 var something: Any? = null
 
